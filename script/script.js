@@ -16,8 +16,10 @@ document.addEventListener('keydown',function(e){
 
   }else if(e.key == 'Enter' && !processing)
   {
+    
     scene++;
     processing = true;
+    textbox.children[1].style.display = 'none'
   switch(scene){
     case 2 :
       loadText('The words whispered differ depending on the person, but they all serve the same purpose, to decieve it\'s listener.Some say they hear the voices of young children,others a deceased loved one, all beckoning them to step closer, to enter.These are of course the accounts of those wise enough to not have adhered to the calls of the wind.Even so, it seems one is damned in one way or another the moment they lay foot on the forest floor.')
@@ -59,12 +61,10 @@ function loadText(txt){
     text.innerHTML += txt[i];
     i++;
   
-    if(i == max){
-      clearInterval(loadChar);
-    }
-    if(!processing){
-      clearInterval(loadChar);
+    if(i == max || !processing){
+      textbox.children[1].style.display = 'block'
       text.innerHTML = txt;
+      clearInterval(loadChar);
     }
   },50)
 }
