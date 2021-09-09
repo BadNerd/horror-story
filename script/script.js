@@ -8,7 +8,7 @@ let active = true;
 loadText('Gently weaving it\'s way through trees and bushes, lightly caressing every marsh, puddle and stream it comes across, the wind calls. It enchants it\'s prey, luring them deeper within the thick folds of Anwir forest.')
 
 
-document.addEventListener('keyup',function(e){
+document.addEventListener('keydown',function(e){
   if(e.key == 'Enter' && processing)
   {
     processing = false;
