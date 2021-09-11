@@ -117,3 +117,13 @@ img
 {
     height: 100%;
 }
+@keyframes fade {
+	0% {opacity : 100%;}
+	10% {opacity: 0%;}
+	100% {opacity : 100%;}
+}
+.effect
+{
+	animation-name: fade;
+	animation-duration: 1.5s;
+}

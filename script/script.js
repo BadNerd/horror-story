@@ -1,12 +1,24 @@
 const image = document.querySelector('.image img');
 const textbox = document.querySelector('.text');
 const text = textbox.children[0];
+var sound = new Howl({
+  src: ['script/sound1.mp3'],
+  volume: 0.2
+});
 
 let processing = true;
 let scene = 1;
 let active = true;
+// scene 1 start
+text.style.color = '#df2020';
+image.classList.toggle('effect')
 loadText('Gently weaving it\'s way through trees and bushes, lightly caressing every marsh, puddle and stream it comes across, the wind calls. It enchants it\'s prey, luring them deeper within the thick folds of Anwir forest.')
 
+setTimeout(function(){
+  image.classList.toggle('effect');
+},1000)
+
+// scene 1 end
 
 document.addEventListener('keydown',function(e){
   if(e.key == 'Enter' && processing)
@@ -28,23 +40,47 @@ document.addEventListener('keydown',function(e){
       loadText('So the new rumor says anyway.')
       break;
     case 4 :
-      image.src = 'img/village.jpg'
-      loadText('I live in a small village called Manokawah, about 10 miles or so from Akowah, where the Anwir forest is supposedly situated.')
+      text.style.color = 'rgb(202, 202, 202)';
+      image.src = 'img/village.jpg';
+      image.classList.toggle('effect');
+      loadText('I live in a small village called Monakowah, about 10 miles or so from Akowah. Last week I had caught wind of a terrifying tale winding through the streets of our tiny village. One that told of a dark, desolate forest that doomed those who dare enter it. ')
+
+      setTimeout(function(){
+        image.classList.toggle('effect');
+      },1000);
+
       break;
-    case 5 : 
-      loadText('I had always been a sceptic of all things supernatural, and thus, I got into the business of debunking them.So when I\'d caught on to this new rumor spreading around town, it undoubtedly sparked an interest.')
-      break;
-    case 6 :
-      image.src = 'img/picking-up.jpg'
-      loadText('I called up a couple buddies at 4 AM the next morning on July 7th of 1980.I set out with my bestfriends, Tim and Jack')
+      case 5:
+        loadText(' Almost every member of my community was left petrified from tales spoken of the \'Anwir Forest\' of Akowah.  People started cutting contact with loved ones they had in Akowah, We even stopped doing trades with them.');
+        break;
+    case 6 : 
+      loadText('Now, I had always been a sceptic to all things supernatural, and thus, I got into the business of debunking them. I wanted to show my community that there was nothing for them to be scared of, they were all just overreacting to what some kid thought they heard . So I called up a couple of my buddies, Tim and Jay, to arrange a road trip for Akowah.')
       break;
     case 7 :
-      loadText('We arrived at Akowah a few days later, excited and just as determined to find answers as we were when we first set out.We met up with a friend of mine there, who agreed to take us there, and way too soon it seemed, we found ourselves facing the infamous forest.')
+      image.classList.toggle('effect')
+      image.src = 'img/picking-up.jpg'
+      loadText('I called up a couple buddies at 4 AM the next morning on July 7th of 1980.I set out with my bestfriends, Tim and Jack')
+      
+      setTimeout(function(){
+        image.classList.toggle('effect');
+      },1000);
+
       break;
     case 8 :
+      loadText('We arrived at Akowah a few days later, excited and just as determined to find answers as we were when we first set out.We met up with a friend of mine there, who agreed to take us there, and way too soon it seemed, we found ourselves facing the infamous forest.')
+      break;
+    case 9 :
+      image.classList.toggle('effect')
       image.src = 'img/me-and-the-boys.jpg'
       loadText('The air was thick and the atmosphere tense, but we had come too far to weasel out now! So with heart\'s pounding, chests puffed and  heads held high, we pressed on and entered Awir.')
+
+      setTimeout(function(){
+        image.classList.toggle('effect');
+      },1000);
+
       break;
+    case 10:
+      loadText('To be continue...')
   }
   console.log(processing);
   }
@@ -52,12 +88,13 @@ document.addEventListener('keydown',function(e){
 })
 
 function loadText(txt){
+  sound.play();
   text.innerHTML = '';
   let max = txt.length;
   let i = 0;
   let loadChar = null;
   loadChar = setInterval(function(){
-
+    sound.play();
     text.innerHTML += txt[i];
     i++;
   
