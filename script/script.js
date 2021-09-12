@@ -3,7 +3,7 @@ const textbox = document.querySelector('.text');
 const text = textbox.children[0];
 var sound = new Howl({
   src: ['script/sound1.mp3'],
-  volume: 0.2
+  volume: 0.1
 });
 
 let processing = true;
@@ -40,8 +40,8 @@ document.addEventListener('keydown',function(e){
       loadText('So the new rumor says anyway.')
       break;
     case 4 :
-      text.style.color = 'rgb(202, 202, 202)';
       image.src = 'img/village.jpg';
+      text.style.color = 'rgb(202, 202, 202)';
       image.classList.toggle('effect');
       loadText('I live in a small village called Monakowah, about 10 miles or so from Akowah. Last week I had caught wind of a terrifying tale winding through the streets of our tiny village. One that told of a dark, desolate forest that doomed those who dare enter it. ')
 
