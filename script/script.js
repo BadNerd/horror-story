@@ -1,3 +1,4 @@
+const opening = document.querySelector('.opening');
 const image = document.querySelector('.image img');
 const textbox = document.querySelector('.text');
 const text = textbox.children[0];
@@ -7,18 +8,13 @@ var sound = new Howl({
 });
 
 let processing = true;
-let scene = 1;
+let scene = 0;
 let active = true;
-// scene 1 start
-text.style.color = '#df2020';
-image.classList.toggle('effect')
-loadText('Gently weaving it\'s way through trees and bushes, lightly caressing every marsh, puddle and stream it comes across, the wind calls. It enchants it\'s prey, luring them deeper within the thick folds of Anwir forest.')
-
-setTimeout(function(){
-  image.classList.toggle('effect');
-},1000)
-
-// scene 1 end
+//opening
+setInterval(function(){
+  opening.children[0].children[1].classList.toggle('hide');
+  
+},500)
 
 document.addEventListener('keydown',function(e){
   if(e.key == 'Enter' && processing)
@@ -28,11 +24,24 @@ document.addEventListener('keydown',function(e){
 
   }else if(e.key == 'Enter' && !processing)
   {
-    
     scene++;
     processing = true;
     textbox.children[1].style.display = 'none'
   switch(scene){
+    case 1 :
+      opening.classList.toggle('fading');
+      text.style.color = '#df2020';
+      text.style.textShadow = '0 0 3px  rgb(190, 43, 43)';
+      setTimeout(function(){
+        opening.style.display = 'none';
+        image.classList.toggle('effect');
+        loadText('Gently weaving it\'s way through trees and bushes, lightly caressing every marsh, puddle and stream it comes across, the wind calls. It enchants it\'s prey, luring them deeper within the thick folds of Anwir forest.')
+      },2500);
+      
+      setTimeout(function(){
+      image.classList.toggle('effect');
+      },1000);
+      break;
     case 2 :
       loadText('The words whispered differ depending on the person, but they all serve the same purpose, to decieve it\'s listener.Some say they hear the voices of young children,others a deceased loved one, all beckoning them to step closer, to enter.These are of course the accounts of those wise enough to not have adhered to the calls of the wind.Even so, it seems one is damned in one way or another the moment they lay foot on the forest floor.')
       break;
@@ -41,7 +50,7 @@ document.addEventListener('keydown',function(e){
       break;
     case 4 :
       image.src = 'img/village.jpg';
-      text.style.color = 'rgb(202, 202, 202)';
+      text.style.color = 'rgb(170, 170, 170)';
       image.classList.toggle('effect');
       loadText('I live in a small village called Monakowah, about 10 miles or so from Akowah. Last week I had caught wind of a terrifying tale winding through the streets of our tiny village. One that told of a dark, desolate forest that doomed those who dare enter it. ')
 

@@ -114,13 +114,70 @@ img
 {
     height: 100%;
 }
-@keyframes fade {
+@keyframes transition {
 	0% {opacity : 100%;}
 	5% {opacity: 5%;}
 	100% {opacity : 100%;}
 }
 .effect
 {
-	animation-name: fade;
+	animation-name: transition;
 	animation-duration: 1.5s;
+}
+
+/* Opening */
+.opening 
+{
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(29, 29, 29);
+	color: white;
+	font-family: 'Kongtext Regular';
+}
+.start-game
+{
+	width: 100%;
+	height: 90%;
+	box-sizing: border-box;
+	padding: 100px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+}
+.title
+{
+	color: rgb(255, 0, 0);
+	text-shadow: 0 0 5px  rgb(255, 43, 43);
+	font-size: 1.98rem;
+}
+.press-button
+{
+	font-size: 1.2rem;
+	text-shadow: 0 0 5px white;
+	letter-spacing: 5px;
+	justify-self: flex-end;
+}
+.hide
+{
+	opacity: 0;
+}
+.fading
+{
+	opacity: 0;
+	transition: 2s;
+}
+.credit
+{
+	bottom: 5px;
+	width: 100%;
+	height: 10%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: .85rem;
+	text-shadow: 0 0 5px rgb(107, 107, 107);
 }
